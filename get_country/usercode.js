@@ -9,20 +9,21 @@ module.exports = async function (data) {
     );
 
     if (result.length === 0)
-      return {
+      data.response = {
         result: "not_found",
         countries: [],
       };
     else
-      return {
+      data.response = {
         result: "ok",
         countries: result,
       };
-      
   } catch (e) {
-    return {
+    data.response = {
       result: "error",
       errorMessage: e.message,
     };
   }
+
+  return data;
 };
