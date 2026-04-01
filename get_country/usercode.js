@@ -1,10 +1,8 @@
 const fs = require("fs");
-const path = require("path");
 
 module.exports = async function (data) {
     try {
-        const filePath = path.resolve(__dirname, '../countries_cities.json');
-        const json = JSON.parse(fs.readFileSync(filePath));
+        const json = JSON.parse(fs.readFileSync('./countries_cities.json'));
 
         const result = json.countries.filter(p => (p.name.charAt(0).toLowerCase() === data.letter.toLowerCase()));
         return {
