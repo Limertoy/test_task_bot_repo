@@ -6,12 +6,14 @@ module.exports = async function (data) {
 
         const result = json.countries.filter(p => (p.name.charAt(0).toLowerCase() === data.letter.toLowerCase()));
         return {
-            countries: result
+            "result": "ok",
+            "countries": result
         };
 
     } catch (e) {
         return {
-            errorMessage: e.message
+            "result": "error",
+            "errorMessage": e.message
         };
     }
 };
